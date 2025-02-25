@@ -1,0 +1,15 @@
+/* Hide elements with this class */
+.hidden {
+    display: none;
+}
+
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+}
+
+button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 16px;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wizard Library</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Load jQuery from CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <!-- Link to your custom JavaScript -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Welcome to The MagiScript Library of Mexyll the Magnificent</h1>
+
+    <!-- Book sections -->
+    <div id="change-password-book" class="book hidden">
+        <h2>Change Password</h2>
+        <form id="change-password-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username">
+            <label for="new-password">New Password:</label>
+            <input type="password" id="new-password">
+            <label for="confirm-password">Confirm New Password:</label>
+            <input type="password" id="confirm-password">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div id="rename-wizard-book" class="book hidden">
+        <h2>Change Name</h2>
+        <form id="rename-wizard-form">
+            <label for="new-name">New Name:</label>
+            <input type="text" id="new-name">
+            <label for="new-title">New Title:</label>
+            <input type="text" id="new-title">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div id="summon-familiar-book" class="book hidden">
+        <h2>Summon Familiar</h2>
+        <form id="summon-form">
+            <label for="familiar-name">Familiar Name:</label>
+            <input type="text" id="familiar-name">
+            <label for="familiar-type">Familiar Type:</label>
+            <input type="text" id="familiar-type">
+            <label for="has-wings">Has Wings:</label>
+            <input type="checkbox" id="has-wings">
+            <div id="wings-type" class="hidden">
+                <label for="wings-type-input">Type of Wings:</label>
+                <input type="text" id="wings-type-input">
+            </div>
+            <button type="submit">Summon</button>
+        </form>
+    </div>
+
+    <button id="close-tome">Close Tome</button>
+</body>
+</html>
