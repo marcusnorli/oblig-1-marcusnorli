@@ -1,74 +1,57 @@
-document.addEventListener('DOMContentLoaded', function () {
-    console.log("JavaScript loaded!");
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("ready!");
 
-    // Get all buttons to open the books
-    document.querySelectorAll('.book').forEach(book => {
-        book.addEventListener('click', function () {
-            const targetBookId = this.dataset.target;
-            const targetBook = document.getElementById(targetBookId);
-            if (!targetBook) {
-                console.error("Target spell book not found:", targetBookId);
-                return;
-            }
-            // Hide all books and show only the target book
-            document.querySelectorAll('.spell-book').forEach(b => b.classList.add('hidden'));
-            targetBook.classList.remove('hidden');
+    // Event listener to open the spell books when clicked
+    const openBooks = {
+        'change-password-book-cover': 'change-password-book',
+        'change-name-book-cover': 'change-name-book',
+        'summon-familiar-book-cover': 'summon-familiar-book'
+    };
+
+    Object.keys(openBooks).forEach(bookCoverId => {
+        const bookCover = document.getElementById(bookCoverId);
+        const targetBookId = openBooks[bookCoverId];
+
+        bookCover.addEventListener("click", () => {
+            document.getElementById(targetBookId).classList.remove('hidden');
+            document.getElementById('book-view').classList.remove('hidden');
         });
     });
 
-    // Close all spell books when clicking "Close Tome"
-    const closeButton = document.getElementById('close-tome');
-    if (closeButton) {
-        closeButton.addEventListener('click', function () {
-            console.log("Close Tome button clicked!");
-            document.querySelectorAll('.spell-book').forEach(book => book.classList.add('hidden'));
-        });
-    } else {
-        console.error("Close Tome button NOT found!");
-    }
+    // Event listener to close the open book view
+    document.getElementById('close-tome').addEventListener("click", () => {
+        document.getElementById('book-view').classList.add('hidden');
+        const spellPages = document.querySelectorAll('.spell-page');
+        spellPages.forEach(page => page.classList.add('hidden'));
+    });
 
-    // Handle form submissions for Change Password, Change Name, and Summon Familiar
-    // Password Form
-    const passwordForm = document.querySelector('#change-password-book button');
-    if (passwordForm) {
-        passwordForm.addEventListener('click', function(event) {
-            event.preventDefault();
-            const password = document.querySelector('#change-password-book input[type="password"]:nth-child(2)');
-            const confirmPassword = document.querySelector('#change-password-book input[type="password"]:nth-child(3)');
-            
-            if (password.value === confirmPassword.value) {
-                alert("Password changed successfully!");
-            } else {
-                alert("Passwords do not match.");
-            }
-        });
-    }
+    // Handle form submissions for each book
+    document.getElementById("change-password-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const currentPassword = document.getElementById("current-password").value;
+        const newPassword = document.getElementById("new-password").value;
+        const confirmPassword = document.getElementById("confirm-password").value;
 
-    // Name Change Form
-    const nameForm = document.querySelector('#change-name-book button');
-    if (nameForm) {
-        nameForm.addEventListener('click', function(event) {
-            event.preventDefault();
-            const newName = document.querySelector('#change-name-book input:nth-child(1)').value;
-            const newTitle = document.querySelector('#change-name-book input:nth-child(2)').value;
-            
-            document.querySelector('.spellbook-header').innerText = `📖 Magical Spellbook of ${newName} the ${newTitle}`;
-            alert("Name changed successfully!");
-        });
-    }
+        if (newPassword === confirmPassword) {
+            alert("Password changed successfully!");
+        } else {
+            alert("Passwords do not match!");
+        }
+    });
 
-    // Summon Familiar Form
-    const summonForm = document.querySelector('#summon-familiar-book button');
-    if (summonForm) {
-        summonForm.addEventListener('click', function(event) {
-            event.preventDefault();
-            const familiarName = document.querySelector('#summon-familiar-book input:nth-child(1)').value;
-            const familiarType = document.querySelector('#summon-familiar-book input:nth-child(2)').value;
-            const hasWings = document.querySelector('#summon-familiar-book input[type="checkbox"]').checked;
-            const wingType = document.querySelector('#summon-familiar-book input:nth-child(4)').value;
-            
-            let wingsDescription = hasWings ? ` with ${wingType} wings` : "";
-            alert(`You have summoned: ${familiarName}, a ${familiarType}${wingsDescription}.`);
-        });
-    }
+    document.getElementById("rename-wizard-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const wizardName = document.getElementById("wizard-name").value;
+        alert(`Your wizard name has been changed to: ${wizardName}`);
+    });
+
+    document.getElementById("summon-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const familiarName = document.getElementById("familiar-name").value;
+        const familiarType = document.getElementById("familiar-type").value;
+        const hasWings = document.getElementById("has-wings").checked;
+        const wingType = document.getElementById("wing-type").value;
+
+        alert(`Familiar ${familiarName} of type ${familiarType} has been summoned!`);
+    });
 });
