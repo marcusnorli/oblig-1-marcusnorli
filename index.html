@@ -1,49 +1,151 @@
-<!-- Books to open spell books -->
-<div class="book" data-target="change-password-book">🔑 Change Password</div>
-<div class="book" data-target="rename-wizard-book">🧙 Change Name</div>
-<div class="book" data-target="summon-familiar-book">🐉 Summon Familiar</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spellbook</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-<!-- Spell books (initially hidden) -->
-<div id="change-password-book" class="spell-book hidden">
-    <h2>Change Password</h2>
-    <form id="change-password-form">
-        <label for="username">Username:</label>
-        <input type="text" id="username">
-        <label for="new-password">New Password:</label>
-        <input type="password" id="new-password">
-        <label for="confirm-password">Confirm New Password:</label>
-        <input type="password" id="confirm-password">
-        <button type="submit">Submit</button>
-    </form>
-</div>
+        h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
 
-<div id="rename-wizard-book" class="spell-book hidden">
-    <h2>Change Name</h2>
-    <form id="rename-wizard-form">
-        <label for="new-name">New Name:</label>
-        <input type="text" id="new-name">
-        <label for="new-title">New Title:</label>
-        <input type="text" id="new-title">
-        <button type="submit">Submit</button>
-    </form>
-</div>
+        .container {
+            width: 50%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
 
-<div id="summon-familiar-book" class="spell-book hidden">
-    <h2>Summon Familiar</h2>
-    <form id="summon-form">
-        <label for="familiar-name">Familiar Name:</label>
-        <input type="text" id="familiar-name">
-        <label for="familiar-type">Familiar Type:</label>
-        <input type="text" id="familiar-type">
-        <label for="has-wings">Has Wings:</label>
-        <input type="checkbox" id="has-wings">
-        <div id="wings-type" class="hidden">
-            <label for="wings-type-input">Type of Wings:</label>
-            <input type="text" id="wings-type-input">
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        label {
+            flex: 1;
+            font-weight: bold;
+        }
+
+        input, button {
+            flex: 2;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-group input {
+            margin-left: 10px;
+        }
+
+        .spellbook-header {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* Hide elements with this class */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="spellbook-header">📖 Magical Spellbook</div>
+
+    <!-- Buttons to open spell books -->
+    <div class="container">
+        <button class="book" data-target="change-password-book">🔑 Change Password</button>
+        <button class="book" data-target="change-name-book">🧙 Change Name</button>
+        <button class="book" data-target="summon-familiar-book">🐉 Summon Familiar</button>
+    </div>
+
+    <!-- Hidden Spell Books (Initially hidden) -->
+    <div id="change-password-book" class="container spell-book hidden">
+        <h2>🔑 Change Password</h2>
+        <div class="form-group">
+            <label>Username:</label>
+            <input type="text">
         </div>
-        <button type="submit">Summon</button>
-    </form>
-</div>
+        <div class="form-group">
+            <label>New Password:</label>
+            <input type="password">
+        </div>
+        <div class="form-group">
+            <label>Confirm New Password:</label>
+            <input type="password">
+        </div>
+        <button>Submit</button>
+    </div>
 
-<!-- Close button -->
-<button id="close-tome">Close Tome</button>
+    <div id="change-name-book" class="container spell-book hidden">
+        <h2>🧙 Change Name</h2>
+        <div class="form-group">
+            <label>New Name:</label>
+            <input type="text">
+        </div>
+        <div class="form-group">
+            <label>New Title:</label>
+            <input type="text">
+        </div>
+        <button>Submit</button>
+    </div>
+
+    <div id="summon-familiar-book" class="container spell-book hidden">
+        <h2>🐉 Summon Familiar</h2>
+        <div class="form-group">
+            <label>Familiar Name:</label>
+            <input type="text">
+        </div>
+        <div class="form-group">
+            <label>Familiar Type:</label>
+            <input type="text">
+        </div>
+        <div class="form-group checkbox-group">
+            <label>Has Wings:</label>
+            <input type="checkbox">
+        </div>
+        <div class="form-group">
+            <label>Type of Wings:</label>
+            <input type="text">
+        </div>
+        <button>Summon</button>
+    </div>
+
+    <button id="close-tome" style="background-color: #d9534f;">Close Tome</button>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
