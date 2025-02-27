@@ -7,6 +7,42 @@
     <title>The MagiScript Library</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+    <style>
+        /* Set the background image for the page */
+        body.library {
+            background-image: url('https://raw.githubusercontent.com/DATA1700-V25/oblig-1-marcusnorli/refs/heads/master/resources/libraryBackGround.webp?token=GHSAT0AAAAAAC6WA3S2NFCIJZUDY7UMWZQ4Z6AG5CA');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        /* Hover effect for the spell book images */
+        .books-container .book img {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .books-container .book:hover img {
+            transform: scale(1.1); /* Slight zoom effect */
+            opacity: 0.8; /* Slight transparency */
+        }
+
+        .books-container .book:hover::after {
+            content: '';
+            position: absolute;
+            background: url('https://raw.githubusercontent.com/DATA1700-V25/oblig-1-marcusnorli/refs/heads/master/resources/books/bookOpen.webp?token=GHSAT0AAAAAAC6WA3S2UJPBCHG42JXT2GMCZ6AGSMA') no-repeat center center;
+            background-size: contain;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5; /* Fade the open book image */
+            pointer-events: none; /* Allow interaction with the book image */
+        }
+    </style>
 </head>
 <body class="library">
     <h1>Welcome to The MagiScript Library of Mexyll the Magnificent</h1>
@@ -18,7 +54,7 @@
             <!-- Change Password Spellbook -->
             <div class="spell-page hidden" id="change-password-book">
                 <div class="page-left">
-                    <img src="https://raw.githubusercontent.com/DATA1700-V25/oblig-1-marcusnorli/refs/heads/master/resources/spellPages/witchPassword.webp?token=GHSAT0AAAAAAC6WA3S23BX2B2LZKTEEZPQ4Z6AEBFQ" alt="witch and padlock">
+                    <img src="https://raw.githubusercontent.com/DATA1700-V25/oblig-1-marcusnorli/refs/heads/master/resources/spellPages/witchPassword.webp?token=GHSAT0AAAAAAC6WA3S3OEDKIBGNRPW5B3MCZ6AGYWQ" alt="witch and padlock">
                 </div>
                 <div class="page-right">
                     <form id="change-password-form">
@@ -37,7 +73,7 @@
             <!-- Change Name Spellbook -->
             <div class="spell-page hidden" id="change-name-book">
                 <div class="page-left">
-                    <img src="https://raw.githubusercontent.com/DATA1700-V25/oblig-1-marcusnorli/refs/heads/master/resources/spellPages/renameWizard.webp?token=GHSAT0AAAAAAC6WA3S23HUFQIDV37FQ7WAQZ6AECGA" alt="wizard looking in mirror">
+                    <img src="https://raw.githubusercontent.com/DATA1700-V25/oblig-1-marcusnorli/refs/heads/master/resources/spellPages/renameWizard.webp?token=GHSAT0AAAAAAC6WA3S2O6JF2HXI6XYUA75QZ6AGYOA" alt="wizard looking in mirror">
                 </div>
                 <div class="page-right">
                     <h2>Rename Yourself</h2>
@@ -53,7 +89,7 @@
             <!-- Summon Familiar Spellbook -->
             <div class="spell-page hidden" id="summon-familiar-book">
                 <div class="page-left">
-                    <img src="https://raw.githubusercontent.com/DATA1700-V25/oblig-1-marcusnorli/refs/heads/master/resources/spellPages/angryLlama.webp?token=GHSAT0AAAAAAC6WA3S2IZ6NADQDBDBBW5IKZ6AECZQ" alt="angry two-headed llama breathing fire">
+                    <img src="https://raw.githubusercontent.com/DATA1700-V25/oblig-1-marcusnorli/refs/heads/master/resources/spellPages/angryLlama.webp?token=GHSAT0AAAAAAC6WA3S2VDNRPKEPPSV35R3CZ6AGYEQ" alt="angry two-headed llama breathing fire">
                 </div>
                 <div class="page-right">
                     <h2>Summon a Familiar</h2>
@@ -78,17 +114,16 @@
     <div class="books-container">
         <div class="book" id="change-password-book-cover">
             <h2>The Arcanum of Archmage Arlo the Apathetic</h2>
-            <img src="https://raw.githubusercontent.com/DATA1700-V25/oblig-1-marcusnorli/refs/heads/master/resources/books/arcanum.webp?token=GHSAT0AAAAAAC6WA3S3YNVCY3IIMPNV3OZCZ6AEDKA" alt="Cover of Arcanum of Archmage Arlo the Apathetic">
+            <img src="https://raw.githubusercontent.com/DATA1700-V25/oblig-1-marcusnorli/refs/heads/master/resources/books/arcanum.webp?token=GHSAT0AAAAAAC6WA3S3MK7I4OZOLZRH4Z7KZ6AGXGQ" alt="Cover of Arcanum of Archmage Arlo the Apathetic">
         </div>
         <div class="book" id="change-name-book-cover">
             <h2>Professor Noodlewhisker the Unpronounceable's Nomen Novum</h2>
-            <img src="https://raw.githubusercontent.com/DATA1700-V25/oblig-1-marcusnorli/refs/heads/master/resources/books/nomenNovum.webp?token=GHSAT0AAAAAAC6WA3S2KR2PKAH2HX7T5K7KZ6AEDWA" alt="Cover of Nomen Novum">
+            <img src="https://raw.githubusercontent.com/DATA1700-V25/oblig-1-marcusnorli/refs/heads/master/resources/books/nomenNovum.webp?token=GHSAT0AAAAAAC6WA3S3WUWFYAUSDPYUO6XIZ6AGWNA" alt="Cover of Nomen Novum">
         </div>
         <div class="book" id="summon-familiar-book-cover">
             <h2>Mexyll the Magnificent’s Mystical Manuscripts of Summon Familiar</h2>
-            <img src="https://raw.githubusercontent.com/DATA1700-V25/oblig-1-marcusnorli/refs/heads/master/resources/books/manuscript.webp?token=GHSAT0AAAAAAC6WA3S3NHX4BNCNKGZ4GEQMZ6AEEKA" alt="Cover of Summon Familiar">
+            <img src="https://raw.githubusercontent.com/DATA1700-V25/oblig-1-marcusnorli/refs/heads/master/resources/books/manuscript.webp?token=GHSAT0AAAAAAC6WA3S3BUQPMNNL66HLNFOOZ6AGW4A" alt="Cover of Summon Familiar">
         </div>
     </div>
 </body>
 </html>
-¯
