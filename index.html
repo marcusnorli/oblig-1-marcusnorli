@@ -5,87 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The MagiScript Library</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
 <body class="library">
-<h1>
-    Welcome to The MagiScript Library of Mexyll the Magnificent
-</h1>
-<div class="book-view-container">
-    <div id="book-view" class="hidden">
-        <button id="close-tome">Close Tome</button>
-        <div class="spell-page hidden" id="change-password-book">
-            <div class="page-left">
-                <img src="resources/spellPages/witchPassword.webp" alt="witch and padlock" class="spellbook-img">
+    <h1>Welcome to The MagiScript Library of Mexyll the Magnificent</h1>
+
+    <div class="book-view-container">
+        <div id="book-view" class="hidden">
+            <button id="close-tome" class="close-button">Close Tome</button>
+
+            <!-- Change Password Spellbook -->
+            <div class="spell-page hidden" id="change-password-book">
+                <div class="page-left">
+                    <img src="https://raw.githubusercontent.com/DATA1700-V25/oblig-1-marcusnorli/refs/heads/master/resources/spellPages/witchPassword.webp?token=GHSAT0AAAAAAC6WA3S23BX2B2LZKTEEZPQ4Z6AEBFQ" alt="witch and padlock">
+                </div>
+                <div class="page-right">
+                    <form id="change-password-form">
+                        <h2>Change Password</h2>
+                        <label for="current-password">Current Password:</label>
+                        <input type="password" id="current-password">
+                        <label for="new-password">New Password:</label>
+                        <input type="password" id="new-password">
+                        <label for="confirm-password">Confirm New Password:</label>
+                        <input type="password" id="confirm-password">
+                        <button type="submit">Change Password</button>
+                    </form>
+                </div>
             </div>
 
-            <form id="change-password-form">
-                <label for="current-password">Current Password:</label>
-                <input type="password" id="current-password" name="current-password" required>
-                <label for="new-password">New Password:</label>
-                <input type="password" id="new-password" name="new-password" required>
-                <label for="confirm-password">Confirm New Password:</label>
-                <input type="password" id="confirm-password" name="confirm-password" required>
-                <button type="submit">Change Password</button>
-            </form>
+            <!-- Change Name Spellbook -->
+            <div class="spell-page hidden" id="change-name-book">
+                <div class="page-left">
+                    <img src="https://raw.githubusercontent.com/DATA1700-V25/oblig-1-marcusnorli/refs/heads/master/resources/spellPages/renameWizard.webp?token=GHSAT0AAAAAAC6WA3S23HUFQIDV37FQ7WAQZ6AECGA" alt="wizard looking in mirror">
+                </div>
+                <div class="page-right">
+                    <h2>Rename Yourself</h2>
+                    <p>Speak your new name with intent, and the magic shall embrace your new identity.</p>
+                    <form id="rename-wizard-form">
+                        <label for="wizard-name">Wizard Name:</label>
+                        <input type="text" id="wizard-name">
+                        <button type="submit">Change Name</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Summon Familiar Spellbook -->
+            <div class="spell-page hidden" id="summon-familiar-book">
+                <div class="page-left">
+                    <img src="https://raw.githubusercontent.com/DATA1700-V25/oblig-1-marcusnorli/refs/heads/master/resources/spellPages/angryLlama.webp?token=GHSAT0AAAAAAC6WA3S2IZ6NADQDBDBBW5IKZ6AECZQ" alt="angry two-headed llama breathing fire">
+                </div>
+                <div class="page-right">
+                    <h2>Summon a Familiar</h2>
+                    <form id="summon-form">
+                        <label for="familiar-name">Familiar Name:</label>
+                        <input type="text" id="familiar-name">
+                        <label for="familiar-type">Familiar Type:</label>
+                        <input type="text" id="familiar-type">
+                        <label>
+                            <input type="checkbox" id="has-wings"> Has Wings
+                        </label>
+                        <label for="wing-type">Type of Wings (if any):</label>
+                        <input type="text" id="wing-type">
+                        <button type="submit">Summon Familiar</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        
-        <div class="spell-page hidden" id="change-name-book">
-            <div class="page-left">
-                <img src="resources/spellPages/renameWizard.webp" alt="wizard looking in mirror" class="spellbook-img">
-            </div>
+    </div>
 
-            <div class="page-right">
-                This spell weaves the ancient magic of names and identity, allowing the caster to shed old titles and
-                embrace a new persona. The incantation should be spoken with a clear vision of the new name and its
-                attributes, marking a rebirth of self in the mystic realms.
-                You should henceforth be known as
-                <form id="rename-wizard-form">
-                    <label for="wizard-name">Wizard Name:</label>
-                    <input type="text" id="wizard-name" name="wizard-name" required>
-                    <button type="submit">Change Name</button>
-                </form>
-            </div>
+    <p>Explore the magic within books...</p>
+    <div class="books-container">
+        <div class="book" id="change-password-book-cover">
+            <h2>The Arcanum of Archmage Arlo the Apathetic</h2>
+            <img src="https://raw.githubusercontent.com/DATA1700-V25/oblig-1-marcusnorli/refs/heads/master/resources/books/arcanum.webp?token=GHSAT0AAAAAAC6WA3S3YNVCY3IIMPNV3OZCZ6AEDKA" alt="Cover of Arcanum of Archmage Arlo the Apathetic">
         </div>
-
-        <div class="spell-page hidden" id="summon-familiar-book">
-            <div class="page-left">
-                <img src="resources/spellPages/angryLlama.webp" alt="angry two headed llama breathing fire" class="spellbook-img">
-            </div>
-
-            <div class="page-right">
-                <form id="summon-form">
-                    <label for="familiar-name">Familiar Name:</label>
-                    <input type="text" id="familiar-name" name="familiar-name" required>
-                    <label for="familiar-type">Familiar Type:</label>
-                    <input type="text" id="familiar-type" name="familiar-type" required>
-                    <label for="has-wings">Has Wings:</label>
-                    <input type="checkbox" id="has-wings" name="has-wings">
-                    <label for="wing-type">Type of Wings (if any):</label>
-                    <input type="text" id="wing-type" name="wing-type">
-                    <button type="submit">Summon Familiar</button>
-                </form>
-            </div>
+        <div class="book" id="change-name-book-cover">
+            <h2>Professor Noodlewhisker the Unpronounceable's Nomen Novum</h2>
+            <img src="https://raw.githubusercontent.com/DATA1700-V25/oblig-1-marcusnorli/refs/heads/master/resources/books/nomenNovum.webp?token=GHSAT0AAAAAAC6WA3S2KR2PKAH2HX7T5K7KZ6AEDWA" alt="Cover of Nomen Novum">
+        </div>
+        <div class="book" id="summon-familiar-book-cover">
+            <h2>Mexyll the Magnificent’s Mystical Manuscripts of Summon Familiar</h2>
+            <img src="https://raw.githubusercontent.com/DATA1700-V25/oblig-1-marcusnorli/refs/heads/master/resources/books/manuscript.webp?token=GHSAT0AAAAAAC6WA3S3NHX4BNCNKGZ4GEQMZ6AEEKA" alt="Cover of Summon Familiar">
         </div>
     </div>
-</div>
-
-<p>Explore the magic within books...</p>
-<div class="books-container">
-    <div class="book" id="change-password-book-cover" class="book-cover">
-        <h2>The Arcanum of Archmage Arlo the Apathetic</h2>
-        <img src="resources/books/arcanum.webp" alt="Cover of Arcanum of Archmage Arlo the Apathetic" class="book-img">
-    </div>
-    <div class="book" id="change-name-book-cover" class="book-cover">
-        <h2>Professor Noodlewhisker the Unpronounceable's Nomen Novum</h2>
-        <img src="resources/books/nomenNovum.webp" alt="Cover of Professor Noodlewhisker the Unpronounceable's Nomen Novum" class="book-img">
-    </div>
-    <div class="book" id="summon-familiar-book-cover" class="book-cover">
-        <h2>Mexyll the Magnificent’s Mystical Manuscripts of Summon Familiar</h2>
-        <img src="resources/books/manuscript.webp" alt="Cover of Mystical Manuscripts of Summon Familiar" class="book-img">
-    </div>
-</div>
 </body>
 </html>
-
+¯

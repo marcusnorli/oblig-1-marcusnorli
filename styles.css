@@ -1,132 +1,197 @@
+/* Import Fantasy Font */
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+
+/* General Styles */
 body {
     height: 100%;
     margin: 0;
-    font-family: "Palatino Linotype", sans-serif;
-    color: white;
-    background: black url('resources/libraryBackGround.webp') top no-repeat;
+    font-family: "Uncial Antiqua", serif;
+    color: #E0C097;
+    background: url('resources/libraryBackground.webp') center no-repeat;
     background-size: cover;
+    text-align: center;
     padding-top: 50px;
 }
 
+/* Library Container */
 .library {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
     max-width: 1800px;
     margin: auto;
 }
 
-#book-view {
-    background: url('resources/books/bookOpen.webp') top no-repeat;
-    background-size: cover;
+/* Title */
+h1 {
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 5px rgba(255, 215, 0, 0.8);
+    background: rgba(0, 0, 0, 0.7);
     padding: 15px;
-    height: 720px;
+    border-radius: 10px;
+    display: inline-block;
+    border: 2px solid gold;
+}
+
+/* Book View (Open Book Effect) */
+#book-view {
+    background: url('resources/books/bookOpen.webp') no-repeat center;
+    background-size: cover;
+    padding: 30px;
+    height: 750px;
     width: 1400px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    margin: auto;
+    border: 6px solid #FFD700;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(255, 223, 0, 0.9);
+    transition: transform 0.3s ease-in-out;
 }
 
+#book-view:hover {
+    transform: scale(1.02);
+}
+
+/* Spell Pages */
 .spell-page {
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .page-left,
 .page-right {
     flex: 1;
-}
-
-.page-left {
-    padding-top: 50px;
-    padding-right: 200px;
+    padding: 20px;
 }
 
 .page-left img {
-    rotate: 6deg;
-    opacity: 0.75;
     max-height: 600px;
     max-width: 350px;
+    border-radius: 10px;
+    opacity: 0.95;
+    filter: drop-shadow(5px 5px 10px rgba(255, 215, 0, 0.6));
 }
 
+/* Scrollable Text on the Right Page */
 .page-right {
-    max-width: 300px;
+    max-width: 450px;
     text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background: rgba(10, 10, 10, 0.85);
+    padding: 25px;
+    border-radius: 12px;
+    border: 2px solid #FFD700;
+    box-shadow: inset 0 0 10px rgba(255, 223, 0, 0.5);
+    overflow-y: auto;
+    max-height: 550px;
 }
 
-.page-right button {
-    font-weight: bold;
-    color: #333;
-    margin-top: 20px;
+/* Page Titles */
+.page-right h2 {
+    color: #FFD700;
+    text-shadow: 1px 1px 5px rgba(255, 223, 0, 0.8);
+    border-bottom: 2px solid #FFD700;
+    padding-bottom: 5px;
 }
 
-img {
-    max-height: 500px;
-    max-width: 400px;
-}
-
-button {
-    padding: 8px 16px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    border-radius: 4px;
-}
-
-.book-view-container,
-.books-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-}
-
-.book {
-    flex: 1;
-    margin: 15px;
-    padding: 15px;
-    border: 2px solid #333;
-    background-color: rgba(0, 0, 0, 0.75);
-    cursor: pointer;
-}
-
-.book img {
-    width: 100%;
-}
-
+/* Forms */
 form {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    width: 325px;
-    margin: 0 auto;
-    color: black;
+    gap: 0.7rem;
+    width: 100%;
 }
 
-form p {
-    margin: 0;
+input, select, button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #FFD700;
+    background: #222;
+    color: #FFD700;
+    font-family: "Uncial Antiqua", serif;
 }
 
-input,
-select,
+input:focus {
+    border-color: #ffae00;
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 174, 0, 0.9);
+}
+
 button {
-    padding: 0.5rem;
-    border-radius: 4px;
+    cursor: pointer;
+    background: darkred;
+    transition: 0.3s ease;
 }
 
+button:hover {
+    background: red;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+/* Bookshelf */
+.books-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 40px;
+}
+
+/* Books */
+.book {
+    flex: 1;
+    max-width: 280px;
+    text-align: center;
+    background: rgba(20, 10, 0, 0.8);
+    border: 2px solid #FFD700;
+    border-radius: 12px;
+    padding: 15px;
+    transition: transform 0.4s ease-in-out;
+    position: relative;
+    box-shadow: 0 0 20px rgba(255, 223, 0, 0.4);
+}
+
+.book:hover {
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 0 25px rgba(255, 223, 0, 0.9);
+}
+
+/* Book Covers */
+.book img {
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #FFD700;
+    transition: transform 0.3s ease-in-out;
+}
+
+.book img:hover {
+    transform: rotateY(10deg);
+}
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: darkred;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.close-button:hover {
+    background-color: red;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+/* Hide Elements */
 .hidden {
     display: none !important;
-}
-
-/* Add hover effects for clickable books */
-.book:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.book-cover {
-    cursor: pointer;
 }
